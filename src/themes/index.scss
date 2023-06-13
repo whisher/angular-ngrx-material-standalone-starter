@@ -1,0 +1,70 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$angular-ngrx-material-standalone-starter-primary: mat.define-palette(mat.$indigo-palette);
+$angular-ngrx-material-standalone-starter-accent: mat.define-palette(
+  mat.$pink-palette,
+  A200,
+  A100,
+  A400
+);
+
+// The warn palette is optional (defaults to red).
+$angular-ngrx-material-standalone-starter-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$angular-ngrx-material-standalone-starter-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $angular-ngrx-material-standalone-starter-primary,
+      accent: $angular-ngrx-material-standalone-starter-accent,
+      warn: $angular-ngrx-material-standalone-starter-warn
+    )
+  )
+);
+
+@mixin app-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $linkColor: mat.get-color-from-palette($primary, lighter);
+  $linkColorHover: mat.get-color-from-palette($primary, darker);
+  $accentColor: mat.get-color-from-palette($accent);
+  $primaryColor: mat.get-color-from-palette($primary);
+  $warnColor: mat.get-color-from-palette($warn);
+  /*
+  With a single theme, you can use
+  css var to set color in tailwind,
+  take a look at tailwind.config.js file.
+  */
+  :root {
+    --app-accent-color: #{$accentColor};
+    --app-primary-color: #{$primaryColor};
+    --app-warn-color: #{$warnColor};
+    --app-link-color: #{$linkColor};
+    --app-link-hover-color: #{$linkColorHover};
+  }
+  .mat-button,
+  .mat-flat-button,
+  .mat-raised-button,
+  .mat-stroked-button {
+    text-transform: uppercase;
+  }
+}
+
+@include app-theme($angular-ngrx-material-standalone-starter-theme);
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($angular-ngrx-material-standalone-starter-theme);
