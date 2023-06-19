@@ -1,18 +1,36 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { NgFor } from '@angular/common';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { AsyncPipe } from '@angular/common';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDrawer } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+
+import { UiLangPickerComponent } from '@shared/ui/lang-picker/lang-picker.component';
+import { PublicLayoutNavComponent } from '../nav/nav.component';
+import { Language, SettingsFacade, APP_LANGUAGES } from '@domains/settings';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-public-layout-header',
   standalone: true,
-  imports: [NgFor, RouterLink, RouterLinkActive],
+  imports: [
+    AsyncPipe,
+    MatIconModule,
+    MatButtonModule,
+    MatToolbarModule,
+    UiLangPickerComponent,
+    PublicLayoutNavComponent
+  ],
   templateUrl: './header.component.html'
 })
 export class PublicLayoutHeaderComponent {
-  navigation = [
-    { link: '/home', label: 'home' },
-    { link: '/login', label: 'login' },
-    { link: '/admin', label: 'admin' }
-  ];
+  @Input() sidenav!: MatDrawer;
+  language$ = this.settingsFacade.language$;
+  languages = APP_LANGUAGES;
+
+  constructor(private settingsFacade: SettingsFacade) {}
+  useLanguage(lang: Language) {
+    console.log('lang', lang);
+    this.settingsFacade.useLanguage(lang);
+  }
 }

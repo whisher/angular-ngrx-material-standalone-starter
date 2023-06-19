@@ -1,1 +1,14 @@
-<p>home works!</p>
+<ul class="flex gap-6">
+  <li
+    class="text-white after:content-[''] after:block after:h-0.5 after:bg-white after:w-full after:transition-all after:duration-300 after:ease-in-out origin-center after:scale-0 hover:after:scale-100"
+    *ngFor="let item of navigation"
+  >
+    <a
+      class="text-lg font-bold uppercase"
+      [routerLink]="[item.link]"
+      routerLinkActive="text-green-800"
+    >
+      {{ item.label }}
+    </a>
+  </li>
+</ul>

@@ -1,13 +1,16 @@
-<header class="mat-elevation-z6">
-  <div class="flex justify-between items-center w-full">
-    <h1 class="w-20">
-      <a routerLink="/">
+<mat-toolbar color="primary">
+  <header class="flex justify-between items-center w-full">
+    <button mat-icon-button (click)="sidenav.toggle()">
+      <mat-icon aria-hidden="false" aria-label="Show menu" fontIcon="menu"></mat-icon>
+    </button>
+    <h1 class="w-20 flex items-center">
+      <a routerLink="/" class="block">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
           stroke-width="1.5"
-          stroke="#000"
+          stroke="#fff"
           class="w-10 h-10"
         >
           <path
@@ -17,40 +20,15 @@
           />
         </svg>
       </a>
+      <span class="text-lg">Angular NgRx Material Starter</span>
     </h1>
-    <div class="flex w-4/6">
-      <ul class="flex gap-6">
-        <li
-          class="text-primary after:content-[''] after:block after:h-0.5 after:bg-white after:w-full after:transition-all after:duration-300 after:ease-in-out origin-center after:scale-0 hover:after:scale-100"
-          *ngFor="let item of navigation"
-        >
-          <a
-            class="text-lg font-bold uppercase"
-            [routerLink]="[item.link]"
-            routerLinkActive="text-accent"
-          >
-            {{ item.label }}
-          </a>
-        </li>
-      </ul>
+    <app-public-layout-nav></app-public-layout-nav>
+    <div class="w-20">
+      <app-ui-lang-picker
+        [language]="language$ | async"
+        [languages]="languages"
+        (useLanguage)="useLanguage($event)"
+      ></app-ui-lang-picker>
     </div>
-    <h1 class="w-20 flex justify-end">
-      <a routerLink="/">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke-width="1.5"
-          stroke="currentColor"
-          class="w-8 h-8"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M15 11.25l1.5 1.5.75-.75V8.758l2.276-.61a3 3 0 10-3.675-3.675l-.61 2.277H12l-.75.75 1.5 1.5M15 11.25l-8.47 8.47c-.34.34-.8.53-1.28.53s-.94.19-1.28.53l-.97.97-.75-.75.97-.97c.34-.34.53-.8.53-1.28s.19-.94.53-1.28L12.75 9M15 11.25L12.75 9"
-          />
-        </svg>
-      </a>
-    </h1>
-  </div>
-</header>
+  </header>
+</mat-toolbar>
