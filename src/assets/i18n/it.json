@@ -1,3 +1,8 @@
 {
-  "home.prologue": "Benvenuti in Angular starter con standalone component"
+  "home.prologue": "Benvenuti in Angular starter con standalone component",
+  "login.label.email": "Email",
+  "login.label.password": "Password",
+  "login.label.button": "Accedi",
+  "error.input.required": "{{field}} è obbligatorio",
+  "error.input.mail": "La Email non è valida"
 }

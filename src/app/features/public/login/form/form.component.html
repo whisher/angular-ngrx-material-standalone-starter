@@ -1,0 +1,45 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="frm" autocomplete="off">
+  <!--<ng-container *ngIf="status?.error">
+    <iwdf-alert type="danger" [msg]="status!.error!.message"></iwdf-alert>
+  </ng-container>-->
+
+  <mat-form-field class="w-full" appearance="outline">
+    <mat-label>{{ 'login.label.email' | translate }}</mat-label>
+    <input type="email" matInput formControlName="email" autocomplete="email" placeholder="" />
+    <mat-error *ngIf="frm.get('email')!.hasError('required')">
+      <span [translate]="'error.input.required'" [translateParams]="{ field: 'Email' }"></span>
+    </mat-error>
+    <mat-error *ngIf="frm.get('email')!.hasError('email')">
+      <span translate>error.input.mail</span>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="w-full" appearance="outline">
+    <mat-label>{{ 'login.label.password' | translate }}</mat-label>
+    <input
+      matInput
+      formControlName="password"
+      autocomplete="current-password"
+      [type]="isPasswordHidden ? 'password' : 'text'"
+    />
+    <button
+      class="mr-3"
+      mat-icon-button
+      matSuffix
+      (click)="isPasswordHidden = !isPasswordHidden"
+      [attr.aria-label]="'Hide password'"
+      [attr.aria-pressed]="isPasswordHidden"
+    >
+      <mat-icon>{{ isPasswordHidden ? 'visibility_off' : 'visibility' }}</mat-icon>
+    </button>
+    <mat-error *ngIf="frm.get('password')!.hasError('required')">
+      <span [translate]="'error.input.required'" [translateParams]="{ field: 'Password' }"></span>
+    </mat-error>
+  </mat-form-field>
+
+  <div class="flex justify-end">
+    <button mat-raised-button color="primary">
+      <span translate>login.label.button</span>
+    </button>
+  </div>
+</form>

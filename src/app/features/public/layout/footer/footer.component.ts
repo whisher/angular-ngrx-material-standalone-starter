@@ -7,4 +7,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   imports: [],
   templateUrl: './footer.component.html'
 })
-export class PublicLayoutFooterComponent {}
+export class PublicLayoutFooterComponent {
+  copyright = new Date().getFullYear();
+}

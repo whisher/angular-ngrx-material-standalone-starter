@@ -21,6 +21,7 @@
     "useDefineForClassFields": false,
     "lib": ["ES2022", "dom"],
     "paths": {
+      "@api/*": ["src/app/api/*"],
       "@shared/*": ["src/app/shared/*"],
       "@domains/*": ["src/app/domains/*"]
     }

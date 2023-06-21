@@ -1,7 +1,6 @@
 import { Routes } from '@angular/router';
 import { PublicLayoutMainComponent } from './layout';
 import { PublicHomeComponent } from './home/home.component';
-import { PublicAboutComponent } from './about/about.component';
 
 export const PUBLIC_ROUTES: Routes = [
   {
@@ -13,14 +12,18 @@ export const PUBLIC_ROUTES: Routes = [
         pathMatch: 'full',
         redirectTo: 'home'
       },
-
+      {
+        path: 'about',
+        loadComponent: () =>
+          import('./about/about.component').then((com) => com.PublicAboutComponent)
+      },
       {
         path: 'home',
         component: PublicHomeComponent
       },
       {
-        path: 'about',
-        component: PublicAboutComponent
+        path: 'login',
+        loadComponent: () => import('./login').then((com) => com.PublicLoginMainComponent)
       }
     ]
   }
