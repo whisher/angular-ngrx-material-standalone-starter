@@ -4,3 +4,5 @@ by [@ilwebdifabio](https://twitter.com/ilwebdifabio)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/whisher/angular-ngrx-material-starter/blob/main/LICENSE)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
+
+https://www.javainuse.com/jwtgenerator

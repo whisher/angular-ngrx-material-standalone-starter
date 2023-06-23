@@ -20,6 +20,7 @@ import { MatInputModule } from '@angular/material/input';
 import { TranslateModule } from '@ngx-translate/core';
 
 import { LoginRequestDto } from '@api/models';
+import { AuthStatus } from '@domains/auth';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -38,7 +39,7 @@ import { LoginRequestDto } from '@api/models';
   templateUrl: './form.component.html'
 })
 export class PublicLoginFormComponent implements OnInit {
-  @Input() status = false;
+  @Input() status!: AuthStatus | null;
   @Output() submitted = new EventEmitter<LoginRequestDto>();
   frm!: FormGroup;
   isPasswordHidden = true;
