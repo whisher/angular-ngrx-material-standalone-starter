@@ -3,7 +3,7 @@ import { NgFor } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSelectChange } from '@angular/material/select';
-import { Language, APP_LANGUAGES, APP_DEFAULT_LANG } from '@domains/settings';
+import { Language } from '@domains/settings';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,

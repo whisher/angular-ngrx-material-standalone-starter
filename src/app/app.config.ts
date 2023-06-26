@@ -1,22 +1,18 @@
 import { ApplicationConfig, importProvidersFrom } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { provideAnimations } from '@angular/platform-browser/animations';
-import { provideHttpClient, HttpClient } from '@angular/common/http';
+import { provideHttpClient, withInterceptors, HttpClient } from '@angular/common/http';
 
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
-import { provideStore } from '@ngrx/store';
-import { provideEffects } from '@ngrx/effects';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 
 import { environment } from '../environments/environment';
+import { APP_DEFAULT_LANG } from '@domains/settings';
 
 import { APP_ROUTES } from './app.routes';
-import { APP_REDUCERS } from '@domains/domains.state';
-import { APP_METAREDUCERS } from '@domains/metareducer';
-import * as fromAuth from '@domains/auth/store';
-import * as fromSettings from '@domains/settings/store';
+import { APP_STORE, APP_AUTH_INTERCEPTORS } from '@domains/index';
 
 export function httpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, `./assets/i18n/`, '.json');
@@ -25,10 +21,10 @@ export function httpLoaderFactory(http: HttpClient) {
 export const appConfig: ApplicationConfig = {
   providers: [
     provideAnimations(),
-    provideHttpClient(),
+    provideHttpClient(withInterceptors(APP_AUTH_INTERCEPTORS)),
     importProvidersFrom(
       TranslateModule.forRoot({
-        defaultLanguage: 'en',
+        defaultLanguage: APP_DEFAULT_LANG,
         loader: {
           provide: TranslateLoader,
           useFactory: httpLoaderFactory,
@@ -37,8 +33,7 @@ export const appConfig: ApplicationConfig = {
       })
     ),
     provideRouter(APP_ROUTES),
-    provideStore(APP_REDUCERS, { metaReducers: APP_METAREDUCERS }),
-    provideEffects([fromAuth.AuthEffects, fromSettings.SettingsEffects]),
+    APP_STORE,
     provideStoreDevtools({
       maxAge: 25,
       logOnly: environment.production,

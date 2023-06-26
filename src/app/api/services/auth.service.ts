@@ -7,6 +7,11 @@ import { LoginRequestDto, LoginResponseDto } from '../models';
  */
 import { delay } from 'rxjs/operators';
 
+const mockData = {
+  expirationEpochSeconds: Date.now() + 1000 * 86400,
+  token:
+    'eyJhbGciOiJIUzI1NiJ9.eyJSb2xlIjoiQWRtaW4iLCJVc2VybmFtZSI6IkZhYmlvIn0.GRULI1dlFxmx8geyjq_sCvuDHfBKHEnsZzuzmR8GAh0'
+};
 @Injectable({ providedIn: 'root' })
 export class AuthService {
   constructor(private http: HttpClient) {}
@@ -14,10 +19,6 @@ export class AuthService {
   // MOCK
   login(data: LoginRequestDto): Observable<LoginResponseDto> {
     console.log(data);
-    return of({
-      expirationEpochSeconds: Date.now() + 1000 * 86400,
-      token:
-        'eyJhbGciOiJIUzI1NiJ9.eyJSb2xlIjoiQWRtaW4iLCJVc2VybmFtZSI6IkZhYmlvIn0.GRULI1dlFxmx8geyjq_sCvuDHfBKHEnsZzuzmR8GAh0'
-    }).pipe(delay(1000));
+    return of(mockData).pipe(delay(1000));
   }
 }

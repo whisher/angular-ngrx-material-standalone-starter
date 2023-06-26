@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 
-import { RouterOutlet } from '@angular/router';
+import { APP_DEFAULT_LANG } from '@domains/settings';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,6 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   constructor(translate: TranslateService) {
-    translate.setDefaultLang('en');
-    translate.use('en');
+    translate.setDefaultLang(APP_DEFAULT_LANG);
   }
 }
