@@ -1,10 +1,12 @@
 import { RouterReducerState } from '@ngrx/router-store';
 import { provideRouterStore, routerReducer } from '@ngrx/router-store';
+import { provideStoreDevtools } from '@ngrx/store-devtools';
 
 import { ActionReducerMap } from '@ngrx/store';
 import { provideStore } from '@ngrx/store';
 import { provideEffects } from '@ngrx/effects';
 
+import { environment } from '../../environments/environment';
 import { CustomRouterSerializer, RouterEffects, RouterStateUrl } from './router';
 import * as fromAccount from './account/store';
 import * as fromAuth from './auth/store';
@@ -35,5 +37,10 @@ export const APP_STORE = [
   ]),
   provideRouterStore({
     serializer: CustomRouterSerializer
+  }),
+  provideStoreDevtools({
+    maxAge: 25,
+    logOnly: environment.production,
+    autoPause: true
   })
 ];

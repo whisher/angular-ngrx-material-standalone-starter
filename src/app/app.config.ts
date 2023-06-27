@@ -6,9 +6,6 @@ import { provideHttpClient, withInterceptors, HttpClient } from '@angular/common
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
-import { provideStoreDevtools } from '@ngrx/store-devtools';
-
-import { environment } from '../environments/environment';
 import { APP_DEFAULT_LANG } from '@domains/settings';
 
 import { APP_ROUTES } from './app.routes';
@@ -33,11 +30,6 @@ export const appConfig: ApplicationConfig = {
       })
     ),
     provideRouter(APP_ROUTES),
-    APP_STORE,
-    provideStoreDevtools({
-      maxAge: 25,
-      logOnly: environment.production,
-      autoPause: true
-    })
+    APP_STORE
   ]
 };

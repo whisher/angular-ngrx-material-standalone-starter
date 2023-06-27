@@ -1,5 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { AsyncPipe } from '@angular/common';
+import { RouterLink } from '@angular/router';
+
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDrawer } from '@angular/material/sidenav';
@@ -15,6 +17,7 @@ import { Language, SettingsFacade, APP_LANGUAGES } from '@domains/settings';
   standalone: true,
   imports: [
     AsyncPipe,
+    RouterLink,
     MatIconModule,
     MatButtonModule,
     MatToolbarModule,

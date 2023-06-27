@@ -1,4 +1,6 @@
 import { Routes } from '@angular/router';
+
+import { authJustLoggedGuard } from '@domains/auth';
 import { PublicLayoutMainComponent } from './layout';
 import { PublicHomeComponent } from './home/home.component';
 
@@ -23,6 +25,7 @@ export const PUBLIC_ROUTES: Routes = [
       },
       {
         path: 'login',
+        canMatch: [authJustLoggedGuard],
         loadComponent: () => import('./login').then((com) => com.PublicLoginMainComponent)
       }
     ]

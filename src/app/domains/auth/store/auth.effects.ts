@@ -2,12 +2,12 @@ import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
 import { catchError, exhaustMap, map } from 'rxjs/operators';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
+
 import { ErrorDto } from '@api/models';
 import { LoginResponseDto } from '@api/models/auth.model';
 import { AuthService } from '@api/services/auth.service';
 import * as AuthActions from './auth.actions';
-
-export const AUTH_KEY = 'AUTH';
+import * as RouterActions from '../../router/router.actions';
 
 @Injectable()
 export class AuthEffects {
@@ -24,6 +24,17 @@ export class AuthEffects {
           })
         )
       )
+    );
+  });
+  logout$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(AuthActions.logout),
+      map(() => {
+        return RouterActions.routerGo({
+          path: ['/login'],
+          extras: { replaceUrl: true }
+        });
+      })
     );
   });
 
