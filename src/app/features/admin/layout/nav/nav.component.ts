@@ -5,11 +5,11 @@ import { NAVIGATION } from './nav.constants';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
-  selector: 'app-public-layout-nav',
+  selector: 'app-admin-layout-nav',
   standalone: true,
   imports: [NgFor, RouterLink, RouterLinkActive],
   templateUrl: './nav.component.html'
 })
-export class PublicLayoutNavComponent {
+export class AdminLayoutNavComponent {
   navigation = NAVIGATION;
 }

@@ -8,12 +8,12 @@ import { MatDrawer } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { UiLangPickerComponent } from '@shared/ui/lang-picker/lang-picker.component';
-import { PublicLayoutNavComponent } from '../nav/nav.component';
+import { AdminLayoutNavComponent } from '../nav/nav.component';
 import { Language, SettingsFacade, APP_LANGUAGES } from '@domains/settings';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
-  selector: 'app-public-layout-header',
+  selector: 'app-admin-layout-header',
   standalone: true,
   imports: [
     AsyncPipe,
@@ -22,11 +22,11 @@ import { Language, SettingsFacade, APP_LANGUAGES } from '@domains/settings';
     MatButtonModule,
     MatToolbarModule,
     UiLangPickerComponent,
-    PublicLayoutNavComponent
+    AdminLayoutNavComponent
   ],
   templateUrl: './header.component.html'
 })
-export class PublicLayoutHeaderComponent {
+export class AdminLayoutHeaderComponent {
   @Input() sidenav!: MatDrawer;
   language$ = this.settingsFacade.language$;
   languages = APP_LANGUAGES;

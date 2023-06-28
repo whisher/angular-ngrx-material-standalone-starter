@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { AsyncPipe } from '@angular/common';
-import { Observable, Subscription } from 'rxjs';
+import { Observable } from 'rxjs';
 import { MatCardModule } from '@angular/material/card';
 
 import { untilDestroyed } from '@shared/utils/destroy';

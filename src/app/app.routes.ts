@@ -1,11 +1,13 @@
 import { Routes } from '@angular/router';
 
+import { accountGuard } from '@domains/account';
 import { authGuard } from '@domains/auth';
 
 export const APP_ROUTES: Routes = [
   {
     path: 'admin',
-    canMatch: [authGuard],
+    canMatch: [authGuard, accountGuard],
+    data: { roles: ['admin'] },
     loadChildren: () => import('./features/admin/routes').then((mod) => mod.ADMIN_ROUTES)
   },
   {

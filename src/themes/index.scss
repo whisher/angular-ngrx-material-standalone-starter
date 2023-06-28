@@ -61,6 +61,12 @@ $angular-ngrx-material-standalone-starter-theme: mat.define-light-theme(
   .mat-stroked-button {
     text-transform: uppercase;
   }
+  .mat-mdc-select-value {
+    color: #fff !important;
+  }
+  .mat-mdc-select-arrow {
+    color: #fff !important;
+  }
 }
 
 @include app-theme($angular-ngrx-material-standalone-starter-theme);

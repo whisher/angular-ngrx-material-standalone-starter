@@ -1,0 +1,16 @@
+<mat-sidenav-container>
+  <mat-sidenav class="w-full" #sidenav mode="push">
+    <app-admin-layout-header [sidenav]="sidenav"></app-admin-layout-header>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="grid min-h-screen grid-rows-[auto_1fr_auto]">
+      <app-admin-layout-header [sidenav]="sidenav"></app-admin-layout-header>
+      <main class="flex justify-center my-10">
+        <div class="w-full md:w-1/2">
+          <router-outlet></router-outlet>
+        </div>
+      </main>
+      <app-admin-layout-footer></app-admin-layout-footer>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

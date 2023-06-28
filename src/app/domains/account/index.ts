@@ -1,3 +1,2 @@
-export { AccountAdminGuard } from './guards/account-admin.guard';
-export { AccountUserGuard } from './guards/account-user.guard';
+export { accountGuard } from './guards/account.guard';
 export { AccountFacade } from './store/account.facade';
