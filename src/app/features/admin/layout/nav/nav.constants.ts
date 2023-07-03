@@ -1,5 +1,5 @@
 export const NAVIGATION = [
-  { link: '/home', label: 'home' },
-  { link: '/about', label: 'about' },
-  { link: '/login', label: 'login' }
+  { link: '/admin/dashboard', label: 'dashboard' },
+  { link: '/admin/settings', label: 'settings' },
+  { link: '/admin/users', label: 'users' }
 ];

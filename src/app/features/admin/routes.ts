@@ -16,6 +16,16 @@ export const ADMIN_ROUTES: Routes = [
         path: 'dashboard',
         loadComponent: () =>
           import('./dashboard/dashboard.component').then((com) => com.AdminDashboardComponent)
+      },
+      {
+        path: 'settings',
+        loadComponent: () =>
+          import('./settings/settings.component').then((com) => com.AdminSettingsComponent)
+      },
+      {
+        path: 'users',
+        loadComponent: () =>
+          import('./users/users.component').then((com) => com.AdminUsersComponent)
       }
     ]
   }

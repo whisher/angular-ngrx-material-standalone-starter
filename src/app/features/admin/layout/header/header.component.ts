@@ -27,7 +27,7 @@ import { Language, SettingsFacade, APP_LANGUAGES } from '@domains/settings';
   templateUrl: './header.component.html'
 })
 export class AdminLayoutHeaderComponent {
-  @Input() sidenav!: MatDrawer;
+  @Input() drawer!: MatDrawer;
   language$ = this.settingsFacade.language$;
   languages = APP_LANGUAGES;
 

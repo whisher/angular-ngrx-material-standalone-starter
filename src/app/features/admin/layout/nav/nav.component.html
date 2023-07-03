@@ -1,14 +1,13 @@
-<ul class="flex gap-6">
-  <li
-    class="text-white after:content-[''] after:block after:h-0.5 after:bg-white after:w-full after:transition-all after:duration-300 after:ease-in-out origin-center after:scale-0 hover:after:scale-100"
-    *ngFor="let item of navigation"
-  >
-    <a
-      class="font-bold text-sm uppercase tracking-wide"
-      [routerLink]="[item.link]"
-      routerLinkActive="text-accent"
-    >
-      {{ item.label }}
-    </a>
-  </li>
-</ul>
+<div class="px-4 py-6">
+  <ul class="flex flex-col gap-3">
+    <li class="text-primary" *ngFor="let item of navigation">
+      <a
+        class="font-bold text-sm uppercase tracking-wide"
+        [routerLink]="[item.link]"
+        routerLinkActive="text-accent"
+      >
+        {{ item.label }}
+      </a>
+    </li>
+  </ul>
+</div>

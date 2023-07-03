@@ -1,21 +1,21 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { provideRouter } from '@angular/router';
 import { PublicLayoutNavComponent } from './nav.component';
 
-describe('PublicLayoutNavComponent', () => {
-  let component: PublicLayoutNavComponent;
+describe(PublicLayoutNavComponent.name, () => {
   let fixture: ComponentFixture<PublicLayoutNavComponent>;
-
-  beforeEach(() => {
+  beforeEach(() =>
     TestBed.configureTestingModule({
-      imports: [PublicLayoutNavComponent]
-    });
+      providers: [provideRouter([{ path: 'home', component: PublicLayoutNavComponent }])]
+    })
+  );
+  beforeEach(() => {
     fixture = TestBed.createComponent(PublicLayoutNavComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    fixture.autoDetectChanges();
   });
 
   it('should create', () => {
+    const component = fixture.componentInstance;
     expect(component).toBeTruthy();
   });
 });
