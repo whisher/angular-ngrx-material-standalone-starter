@@ -1,1 +1,6 @@
-<p>Settings works!</p>
+<h2 class="text-2xl pb-4">Settings</h2>
+<mat-select class="settings" [ngModel]="language$ | async" (selectionChange)="useLanguage($event)">
+  <mat-option *ngFor="let lang of languages" [value]="lang">
+    <span class="!text-black"> {{ lang.toUpperCase() }}</span>
+  </mat-option>
+</mat-select>

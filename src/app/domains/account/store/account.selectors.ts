@@ -9,7 +9,7 @@ export const selectData = createSelector(selectFeature, (state: AccountState) =>
   if (state) {
     return state.data;
   }
-  return undefined;
+  return null;
 });
 
 export const selectAccount = createSelector(
@@ -19,7 +19,7 @@ export const selectAccount = createSelector(
     if (isAuthenticated) {
       return account;
     }
-    return undefined;
+    return null;
   }
 );
 

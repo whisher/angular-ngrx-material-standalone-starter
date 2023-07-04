@@ -10,7 +10,7 @@ import { ErrorDto, UserAccountResponseDto } from '@api/models';
 
 @Injectable({ providedIn: 'root' })
 export class AccountFacade {
-  get data$(): Observable<UserAccountResponseDto | undefined> {
+  get data$(): Observable<UserAccountResponseDto | null> {
     return this.store.select(selectAccount);
   }
 

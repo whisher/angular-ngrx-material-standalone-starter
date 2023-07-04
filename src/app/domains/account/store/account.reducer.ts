@@ -8,7 +8,7 @@ import * as AccountActions from './account.actions';
 export const initialState: AccountState = {
   error: null,
   loaded: false,
-  data: undefined
+  data: null
 };
 
 const _accountReducer = createReducer<AccountState>(
@@ -21,7 +21,7 @@ const _accountReducer = createReducer<AccountState>(
       ...state,
       error,
       loaded: false,
-      data: undefined
+      data: null
     };
   }),
   on(

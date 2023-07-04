@@ -4,9 +4,12 @@
   </mat-drawer>
   <mat-drawer-content>
     <div class="grid min-h-screen grid-rows-[auto_1fr_auto]">
-      <app-admin-layout-header [drawer]="drawer"></app-admin-layout-header>
-      <main class="flex justify-center my-10">
-        <div class="w-full">
+      <app-admin-layout-header
+        [account]="account$ | async"
+        [drawer]="drawer"
+      ></app-admin-layout-header>
+      <main class="w-full flex px-12 pb-12 pt-24">
+        <div class="">
           <router-outlet></router-outlet>
         </div>
       </main>
