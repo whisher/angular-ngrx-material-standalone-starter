@@ -11,7 +11,7 @@ describe(AppComponent.name, () => {
   let debugElement: DebugElement;
   beforeEach(() =>
     TestBed.configureTestingModule({
-      imports: [NGRX_TESTING_TRANSLATE, AppComponent]
+      imports: [NGRX_TESTING_TRANSLATE]
     })
   );
   beforeEach(() => {

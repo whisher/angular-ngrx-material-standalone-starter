@@ -1,4 +1,6 @@
 {
+  "languages.en": "English",
+  "languages.it": "Italian",
   "home.prologue": "Welcome in Angular starter with standalone component",
   "login.label.email": "Email",
   "login.label.password": "Password",

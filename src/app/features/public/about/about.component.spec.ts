@@ -1,21 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { PublicAboutComponent } from './about.component';
 
-describe('PublicAboutComponent', () => {
-  let component: PublicAboutComponent;
+describe(PublicAboutComponent.name, () => {
   let fixture: ComponentFixture<PublicAboutComponent>;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({
-      imports: [PublicAboutComponent]
-    });
     fixture = TestBed.createComponent(PublicAboutComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    fixture.autoDetectChanges();
   });
 
   it('should create', () => {
+    const component = fixture.componentInstance;
     expect(component).toBeTruthy();
   });
 });

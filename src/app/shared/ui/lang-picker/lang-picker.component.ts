@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
-import { NgFor } from '@angular/common';
+import { NgFor, UpperCasePipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSelectChange } from '@angular/material/select';
@@ -9,19 +9,19 @@ import { Language } from '@domains/settings';
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-ui-lang-picker',
   standalone: true,
-  imports: [NgFor, FormsModule, MatSelectModule],
+  imports: [NgFor, UpperCasePipe, FormsModule, MatSelectModule],
   template: `
     <mat-select [ngModel]="language" (selectionChange)="onUseLanguage($event)">
       <mat-option *ngFor="let lang of languages" [value]="lang">
-        {{ lang.toUpperCase() }}
+        {{ lang | uppercase }}
       </mat-option>
     </mat-select>
   `
 })
 export class UiLangPickerComponent {
   @Output() useLanguage = new EventEmitter<Language>();
-  @Input() language!: Language | null;
-  @Input() languages: Language[] = [];
+  @Input({ required: true }) language!: Language | null;
+  @Input({ required: true }) languages: Language[] = [];
 
   onUseLanguage(event: MatSelectChange) {
     const lang = event.value as Language;

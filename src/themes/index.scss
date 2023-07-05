@@ -67,6 +67,9 @@ $angular-ngrx-material-standalone-starter-theme: mat.define-light-theme(
   .settings .mat-mdc-select-value {
     color: var(--app-accent-color) !important;
   }
+  .settings .mat-mdc-select-arrow {
+    color: var(--app-accent-color) !important;
+  }
   .mat-mdc-select-arrow {
     color: #fff !important;
   }

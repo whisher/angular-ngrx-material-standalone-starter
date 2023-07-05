@@ -30,8 +30,8 @@ import { Language, SettingsFacade, APP_LANGUAGES } from '@domains/settings';
   templateUrl: './header.component.html'
 })
 export class AdminLayoutHeaderComponent {
-  @Input() drawer!: MatDrawer;
-  @Input() account!: UserAccountResponseDto | null;
+  @Input({ required: true }) drawer!: MatDrawer;
+  @Input({ required: true }) account!: UserAccountResponseDto | null;
   language$ = this.settingsFacade.language$;
   languages = APP_LANGUAGES;
   constructor(private settingsFacade: SettingsFacade) {}

@@ -28,7 +28,7 @@ export const accountGuard = (route: Route): Observable<boolean> => {
       const data = route.data;
       if (account && data) {
         const userRole = account.role;
-        if (data['roles'].indexOf(userRole) !== -1) {
+        if (data['roles'].includes(userRole)) {
           return of(true);
         }
       }

@@ -39,7 +39,7 @@ import { AuthStatus } from '@domains/auth';
   templateUrl: './form.component.html'
 })
 export class PublicLoginFormComponent implements OnInit {
-  @Input() status!: AuthStatus | null;
+  @Input({ required: true }) status!: AuthStatus | null;
   @Output() submitted = new EventEmitter<LoginRequestDto>();
   frm!: FormGroup;
   isPasswordHidden = true;

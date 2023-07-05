@@ -1,21 +1,23 @@
+import { NGRX_TESTING_TRANSLATE } from '../../../../testing/ngrx.translate';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PublicHomeComponent } from './home.component';
 
-describe('PublicHomeComponent', () => {
-  let component: PublicHomeComponent;
+describe(PublicHomeComponent.name, () => {
   let fixture: ComponentFixture<PublicHomeComponent>;
 
-  beforeEach(() => {
+  beforeEach(() =>
     TestBed.configureTestingModule({
-      imports: [PublicHomeComponent],
-    });
+      imports: [NGRX_TESTING_TRANSLATE, PublicHomeComponent]
+    })
+  );
+  beforeEach(() => {
     fixture = TestBed.createComponent(PublicHomeComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    fixture.autoDetectChanges();
   });
 
   it('should create', () => {
+    const component = fixture.componentInstance;
     expect(component).toBeTruthy();
   });
 });
