@@ -1,21 +1,22 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { NGRX_TESTING_TRANSLATE } from '../../../../testing/ngrx.translate';
 import { AdminDashboardComponent } from './dashboard.component';
 
-describe('AdminDashboardComponent', () => {
-  let component: AdminDashboardComponent;
+describe(AdminDashboardComponent.name, () => {
   let fixture: ComponentFixture<AdminDashboardComponent>;
-
-  beforeEach(() => {
+  beforeEach(() =>
     TestBed.configureTestingModule({
-      imports: [AdminDashboardComponent]
-    });
+      imports: [HttpClientTestingModule, NGRX_TESTING_TRANSLATE]
+    })
+  );
+  beforeEach(() => {
     fixture = TestBed.createComponent(AdminDashboardComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    fixture.autoDetectChanges();
   });
 
   it('should create', () => {
+    const component = fixture.componentInstance;
     expect(component).toBeTruthy();
   });
 });

@@ -2,7 +2,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideMockStore } from '@ngrx/store/testing';
 import { NGRX_TESTING_TRANSLATE } from '../../../../../testing/ngrx.translate';
-import { initialState } from '@domains/settings/store/settings.reducer';
+import { initialState } from '@domains/auth/store/auth.reducer';
 import { PublicLoginMainComponent } from './main.component';
 
 describe(PublicLoginMainComponent.name, () => {

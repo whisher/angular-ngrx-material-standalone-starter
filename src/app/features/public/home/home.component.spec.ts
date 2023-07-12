@@ -8,7 +8,7 @@ describe(PublicHomeComponent.name, () => {
 
   beforeEach(() =>
     TestBed.configureTestingModule({
-      imports: [NGRX_TESTING_TRANSLATE, PublicHomeComponent]
+      imports: [NGRX_TESTING_TRANSLATE]
     })
   );
   beforeEach(() => {

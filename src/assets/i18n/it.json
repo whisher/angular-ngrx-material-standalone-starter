@@ -1,10 +1,15 @@
 {
   "languages.en": "Inglese",
   "languages.it": "Italiano",
+  "error.input.required": "{{field}} è obbligatorio",
+  "error.input.mail": "La Email non è valida",
+  "notfound.header": "Scusa!",
+  "notfound.prologue1": "La pagina che stai cercando",
+  "notfound.prologue2": "non esiste.",
+  "notfound.link": "Vai alla home",
   "home.prologue": "Benvenuti in Angular starter con standalone component",
   "login.label.email": "Email",
   "login.label.password": "Password",
   "login.label.button": "Accedi",
-  "error.input.required": "{{field}} è obbligatorio",
-  "error.input.mail": "La Email non è valida"
+  "admin.dashboard.header": "Dashboard tutto bene!"
 }

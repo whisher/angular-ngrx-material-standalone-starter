@@ -1,9 +1,10 @@
 import { NGRX_TESTING_TRANSLATE } from '../testing/ngrx.translate';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideMockStore } from '@ngrx/store/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-
+import { initialState } from '@domains/settings/store/settings.reducer';
 import { AppComponent } from './app.component';
 
 describe(AppComponent.name, () => {
@@ -11,7 +12,8 @@ describe(AppComponent.name, () => {
   let debugElement: DebugElement;
   beforeEach(() =>
     TestBed.configureTestingModule({
-      imports: [NGRX_TESTING_TRANSLATE]
+      imports: [NGRX_TESTING_TRANSLATE],
+      providers: [provideMockStore({ initialState })]
     })
   );
   beforeEach(() => {

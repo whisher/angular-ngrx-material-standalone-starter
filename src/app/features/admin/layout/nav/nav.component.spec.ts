@@ -1,21 +1,21 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { provideRouter } from '@angular/router';
 import { AdminLayoutNavComponent } from './nav.component';
 
-describe('AdminLayoutNavComponent', () => {
-  let component: AdminLayoutNavComponent;
+describe(AdminLayoutNavComponent.name, () => {
   let fixture: ComponentFixture<AdminLayoutNavComponent>;
-
-  beforeEach(() => {
+  beforeEach(() =>
     TestBed.configureTestingModule({
-      imports: [AdminLayoutNavComponent]
-    });
+      providers: [provideRouter([{ path: 'home', component: AdminLayoutNavComponent }])]
+    })
+  );
+  beforeEach(() => {
     fixture = TestBed.createComponent(AdminLayoutNavComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    fixture.autoDetectChanges();
   });
 
   it('should create', () => {
+    const component = fixture.componentInstance;
     expect(component).toBeTruthy();
   });
 });

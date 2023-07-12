@@ -1,33 +1,22 @@
-// Core
 import { FormsModule } from '@angular/forms';
-
-// Testing
-import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
-
-// Material
 import { MatSelectModule } from '@angular/material/select';
-
-// Components
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { UiLangPickerComponent } from './lang-picker.component';
 
-describe('UiLangPickerComponent', () => {
-  let component: UiLangPickerComponent;
+describe(UiLangPickerComponent.name, () => {
   let fixture: ComponentFixture<UiLangPickerComponent>;
-
-  beforeEach(waitForAsync(() => {
+  beforeEach(() =>
     TestBed.configureTestingModule({
-      imports: [FormsModule, MatSelectModule],
-      declarations: [UiLangPickerComponent]
-    }).compileComponents();
-  }));
-
+      imports: [FormsModule, MatSelectModule]
+    })
+  );
   beforeEach(() => {
     fixture = TestBed.createComponent(UiLangPickerComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    fixture.autoDetectChanges();
   });
 
   it('should create', () => {
+    const component = fixture.componentInstance;
     expect(component).toBeTruthy();
   });
 });

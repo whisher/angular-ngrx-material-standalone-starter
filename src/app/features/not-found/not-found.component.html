@@ -2,12 +2,12 @@
   <div class="flex items-center gap-3 text-white">
     <h1 class="text-7xl">404</h1>
     <div>
-      <h2 class="text-4xl">Sorry!</h2>
-      <p>The page you’re looking for</p>
-      <p>was not found.</p>
+      <h2 class="text-4xl">{{ 'notfound.header' | translate }}</h2>
+      <p>{{ 'notfound.prologue1' | translate }}</p>
+      <p>{{ 'notfound.prologue2' | translate }}</p>
     </div>
   </div>
   <div class="flex items-center mt-5">
-    <a routerLink="/" class="underline text-white text-xl">Back to home</a>
+    <a routerLink="/" class="underline text-white text-xl">{{ 'notfound.link' | translate }}</a>
   </div>
 </div>

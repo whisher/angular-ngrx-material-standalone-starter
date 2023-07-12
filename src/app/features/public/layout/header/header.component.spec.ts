@@ -1,8 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideMockStore } from '@ngrx/store/testing';
 import { provideRouter } from '@angular/router';
-import { PublicLayoutHeaderComponent } from './header.component';
 import { initialState } from '@domains/settings/store/settings.reducer';
+import { PublicLayoutHeaderComponent } from './header.component';
+
 describe(PublicLayoutHeaderComponent.name, () => {
   let fixture: ComponentFixture<PublicLayoutHeaderComponent>;
   beforeEach(() =>

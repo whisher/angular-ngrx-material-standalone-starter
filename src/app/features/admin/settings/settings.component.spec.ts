@@ -1,21 +1,26 @@
+import { NGRX_TESTING_TRANSLATE } from '../../../../testing/ngrx.translate';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { provideMockStore } from '@ngrx/store/testing';
+import { initialState } from '@domains/settings/store/settings.reducer';
 import { AdminSettingsComponent } from './settings.component';
 
-describe('AdminSettingsComponent', () => {
-  let component: AdminSettingsComponent;
+describe(AdminSettingsComponent.name, () => {
   let fixture: ComponentFixture<AdminSettingsComponent>;
 
-  beforeEach(() => {
+  beforeEach(() =>
     TestBed.configureTestingModule({
-      imports: [AdminSettingsComponent]
-    });
+      imports: [NGRX_TESTING_TRANSLATE],
+      providers: [provideMockStore({ initialState })]
+    })
+  );
+
+  beforeEach(() => {
     fixture = TestBed.createComponent(AdminSettingsComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    fixture.autoDetectChanges();
   });
 
   it('should create', () => {
+    const component = fixture.componentInstance;
     expect(component).toBeTruthy();
   });
 });

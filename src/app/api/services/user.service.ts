@@ -24,4 +24,9 @@ export class UserService {
   account(): Observable<UserAccountResponseDto> {
     return of(mockData).pipe(delay(1000));
   }
+
+  pokemonTest(): Observable<unknown> {
+    const url = 'https://pokeapi.co/api/v2/ability/1';
+    return this.http.get<unknown>(url);
+  }
 }
